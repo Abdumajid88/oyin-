@@ -1,4 +1,4 @@
-import { use, useReducer } from "react";
+import { use, useReducer, useState } from "react";
 import "./App.css";
 
 const reducer = (state, action) => {
@@ -18,9 +18,10 @@ const reducer = (state, action) => {
 
 function App() {
   const [count, dispatch] = useReducer(reducer, 1);
+  const [num, setNum] = useState ("")
   return (
     <>
-      
+      <input type="text" value={num} onChange={(e) => setNum(e.target.value)} placeholder="son kiriting" />
       <button onClick={() => dispatch({ type: "+" })}>+</button>
       <button onClick={() => dispatch({ type: "*2" })}>*2</button>
       <h1>{count}</h1>
